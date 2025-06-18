@@ -59,7 +59,7 @@ Certifique-se de ter instalado:
 
 1. **Clone o repositório**
 ```bash
-git clone <git@github.com:nieremberg/fullstack_vue_nestjs.git>
+git clone git@github.com:nieremberg/fullstack_vue_nestjs.git
 cd fullstack_vue_nestjs
 ```
 
