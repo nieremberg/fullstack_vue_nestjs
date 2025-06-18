@@ -1,0 +1,227 @@
+# 🚫 Git Ignore Configuration
+
+# =================================
+# 🌍 Environment Variables
+# =================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =================================
+# 📦 Dependencies
+# =================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =================================
+# 🔨 Build & Distribution
+# =================================
+dist/
+dist-ssr/
+build/
+out/
+.output/
+.nuxt/
+.next/
+
+# =================================
+# 🧪 Testing
+# =================================
+coverage/
+*.lcov
+.nyc_output/
+test-results/
+playwright-report/
+test-results.xml
+
+# =================================
+# 🎯 IDE & Editors
+# =================================
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# =================================
+# 🍎 macOS
+# =================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# =================================
+# 🐧 Linux
+# =================================
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =================================
+# 🪟 Windows
+# =================================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# =================================
+# 📝 Logs
+# =================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =================================
+# 🐳 Docker
+# =================================
+docker-compose.override.yml
+.dockerignore
+
+# =================================
+# 🗄️ Database
+# =================================
+*.sqlite
+*.db
+database.sqlite3
+prisma/dev.db
+prisma/migrations/.migrate
+
+# =================================
+# 📁 Uploads & Temporary Files
+# =================================
+uploads/
+temp/
+tmp/
+*.tmp
+*.temp
+
+# =================================
+# 🔐 Security & Certificates
+# =================================
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.p12
+secrets/
+certificates/
+
+# =================================
+# ☁️ Cloud & Deployment
+# =================================
+.vercel/
+.netlify/
+.firebase/
+.aws/
+.gcp/
+
+# =================================
+# 📊 Monitoring & Analytics
+# =================================
+.storybook/build/
+storybook-static/
+
+# =================================
+# 🎨 Frontend Specific
+# =================================
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Vue
+.vue-devtools/
+
+# Nuxt
+.nuxt/
+
+# =================================
+# 🏗️ Backend Specific
+# =================================
+# NestJS
+dist/
+build/
+
+# =================================
+# 📱 Mobile Development
+# =================================
+# React Native
+ios/
+android/
+.expo/
+.expo-shared/
+
+# =================================
+# 🧩 Package Managers
+# =================================
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# pnpm
+.pnpm-debug.log*
+.pnpm-store/
+
+# =================================
+# 🎭 Storybook
+# =================================
+.storybook/dist/
+storybook-static/
+
+# =================================
+# 📈 Performance & Profiling
+# =================================
+.trace
+.prof
+.tsbuildinfo
+
+# =================================
+# 🔄 Version Control
+# =================================
+.hg/
+.svn/
+CVS/
+
+# =================================
+# 🎯 Custom Project Files
+# =================================
+# Adicione aqui arquivos específicos do seu projeto
+TODO.md
+NOTES.md
+*.backup
+*.bak

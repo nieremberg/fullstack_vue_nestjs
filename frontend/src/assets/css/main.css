@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
+:root {
+  --color-primary: theme('colors.primary.500');
+  --color-secondary: theme('colors.secondary.500');
+  --shadow-elevation-1: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-elevation-2: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-elevation-3: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  input, textarea, select {
+    @apply border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    @apply ring-primary-500 border-primary-500;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+
+  .btn-outline {
+    @apply btn border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-primary-500 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-lg;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700;
+  }
+
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .card-body {
+    @apply px-6 py-4;
+  }
+
+  .card-footer {
+    @apply px-6 py-4 border-t border-gray-200 dark:border-gray-700;
+  }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+  }
+
+  .form-input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white;
+  }
+
+  .form-error {
+    @apply mt-1 text-sm text-red-600 dark:text-red-400;
+  }
+
+  .alert {
+    @apply p-4 rounded-md border;
+  }
+
+  .alert-success {
+    @apply alert bg-green-50 border-green-200 text-green-800 dark:bg-green-900/20 dark:border-green-800 dark:text-green-400;
+  }
+
+  .alert-error {
+    @apply alert bg-red-50 border-red-200 text-red-800 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400;
+  }
+
+  .alert-warning {
+    @apply alert bg-yellow-50 border-yellow-200 text-yellow-800 dark:bg-yellow-900/20 dark:border-yellow-800 dark:text-yellow-400;
+  }
+
+  .alert-info {
+    @apply alert bg-blue-50 border-blue-200 text-blue-800 dark:bg-blue-900/20 dark:border-blue-800 dark:text-blue-400;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, theme('colors.primary.600'), theme('colors.secondary.600'));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+  }
+}

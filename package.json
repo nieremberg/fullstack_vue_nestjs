@@ -1,0 +1,137 @@
+{
+  "name": "fullstack-vue-nestjs-app",
+  "version": "1.0.0",
+  "description": "🚀 Aplicação fullstack moderna com Vue 3 + NestJS + TypeScript",
+  "keywords": [
+    "vue",
+    "nestjs",
+    "typescript",
+    "fullstack",
+    "prisma",
+    "postgresql",
+    "docker",
+    "tailwindcss",
+    "vite",
+    "pinia"
+  ],
+  "author": {
+    "name": "Fullstack Team",
+    "email": "dev@fullstack.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/fullstack-vue-nestjs-app.git"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "🚀 === DEVELOPMENT SCRIPTS ===": "",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev:storybook": "cd frontend && npm run storybook",
+
+    "📦 === INSTALLATION SCRIPTS ===": "",
+    "install:all": "npm install && npm run install:frontend && npm run install:backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "clean": "npm run clean:deps && npm run clean:build",
+    "clean:deps": "rm -rf node_modules frontend/node_modules backend/node_modules",
+    "clean:build": "rm -rf frontend/dist backend/dist",
+
+    "🔨 === BUILD SCRIPTS ===": "",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "build:storybook": "cd frontend && npm run build-storybook",
+
+    "🧪 === TEST SCRIPTS ===": "",
+    "test": "npm run test:frontend && npm run test:backend",
+    "test:frontend": "cd frontend && npm run test",
+    "test:backend": "cd backend && npm run test",
+    "test:e2e": "cd frontend && npm run test:e2e",
+    "test:coverage": "npm run test:coverage:frontend && npm run test:coverage:backend",
+    "test:coverage:frontend": "cd frontend && npm run test:coverage",
+    "test:coverage:backend": "cd backend && npm run test:cov",
+    "test:watch": "concurrently \"npm run test:watch:frontend\" \"npm run test:watch:backend\"",
+    "test:watch:frontend": "cd frontend && npm run test:watch",
+    "test:watch:backend": "cd backend && npm run test:watch",
+
+    "🐳 === DOCKER SCRIPTS ===": "",
+    "docker:dev": "docker-compose up -d",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up -d",
+    "docker:build": "docker-compose build",
+    "docker:stop": "docker-compose down",
+    "docker:clean": "docker-compose down -v --rmi all --remove-orphans",
+    "docker:logs": "docker-compose logs -f",
+    "docker:logs:frontend": "docker-compose logs -f frontend",
+    "docker:logs:backend": "docker-compose logs -f backend",
+
+    "🗄️ === DATABASE SCRIPTS ===": "",
+    "db:migrate": "cd backend && npx prisma migrate dev",
+    "db:migrate:prod": "cd backend && npx prisma migrate deploy",
+    "db:seed": "cd backend && npx prisma db seed",
+    "db:studio": "cd backend && npx prisma studio",
+    "db:reset": "cd backend && npx prisma migrate reset",
+    "db:generate": "cd backend && npx prisma generate",
+    "db:push": "cd backend && npx prisma db push",
+
+    "✨ === CODE QUALITY SCRIPTS ===": "",
+    "lint": "npm run lint:frontend && npm run lint:backend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "lint:fix": "npm run lint:fix:frontend && npm run lint:fix:backend",
+    "lint:fix:frontend": "cd frontend && npm run lint:fix",
+    "lint:fix:backend": "cd backend && npm run lint:fix",
+    "format": "npm run format:frontend && npm run format:backend",
+    "format:frontend": "cd frontend && npm run format",
+    "format:backend": "cd backend && npm run format",
+    "type-check": "npm run type-check:frontend && npm run type-check:backend",
+    "type-check:frontend": "cd frontend && npm run type-check",
+    "type-check:backend": "cd backend && npm run build",
+
+    "🚀 === DEPLOYMENT SCRIPTS ===": "",
+    "deploy:dev": "npm run build && npm run docker:dev",
+    "deploy:prod": "npm run build && npm run docker:prod",
+    "deploy:staging": "npm run build && npm run docker:staging",
+
+    "📊 === MONITORING SCRIPTS ===": "",
+    "health": "npm run health:frontend && npm run health:backend",
+    "health:frontend": "curl -f http://localhost:3000/health || echo 'Frontend not healthy'",
+    "health:backend": "curl -f http://localhost:3001/health || echo 'Backend not healthy'",
+    "logs": "npm run docker:logs",
+
+    "🔧 === UTILITY SCRIPTS ===": "",
+    "setup": "npm run install:all && cp .env.example .env && npm run db:migrate && npm run db:seed",
+    "start": "npm run dev",
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}

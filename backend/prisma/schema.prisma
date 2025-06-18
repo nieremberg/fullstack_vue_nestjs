@@ -1,0 +1,195 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  name          String
+  password      String
+  avatar        String?
+  role          Role     @default(USER)
+  emailVerified Boolean  @default(false)
+  isActive      Boolean  @default(true)
+
+  // Authentication tokens
+  refreshTokens RefreshToken[]
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Indexes
+  @@map("users")
+}
+
+// Refresh token model
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  isRevoked Boolean  @default(false)
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Indexes
+  @@map("refresh_tokens")
+}
+
+// Password reset model
+model PasswordReset {
+  id        String   @id @default(cuid())
+  email     String
+  token     String   @unique
+  expiresAt DateTime
+  used      Boolean  @default(false)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Indexes
+  @@map("password_resets")
+}
+
+// Email verification model
+model EmailVerification {
+  id        String   @id @default(cuid())
+  email     String
+  token     String   @unique
+  expiresAt DateTime
+  used      Boolean  @default(false)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Indexes
+  @@map("email_verifications")
+}
+
+// File upload model
+model Upload {
+  id           String     @id @default(cuid())
+  filename     String
+  originalName String
+  mimetype     String
+  size         Int
+  path         String
+  url          String
+  uploadedBy   String?
+  folder       String?
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Indexes
+  @@map("uploads")
+}
+
+// Audit log model for tracking user actions
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  action    String
+  entity    String
+  entityId  String?
+  oldData   Json?
+  newData   Json?
+  ipAddress String?
+  userAgent String?
+
+  // Timestamps
+  createdAt DateTime @default(now())
+
+  // Indexes
+  @@map("audit_logs")
+}
+
+// Session model for tracking user sessions
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  sessionId String   @unique
+  ipAddress String?
+  userAgent String?
+  expiresAt DateTime
+  isActive  Boolean  @default(true)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Indexes
+  @@map("sessions")
+}
+
+// Notification model
+model Notification {
+  id       String           @id @default(cuid())
+  userId   String
+  type     NotificationType
+  title    String
+  message  String
+  data     Json?
+  read     Boolean          @default(false)
+  readAt   DateTime?
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Indexes
+  @@map("notifications")
+}
+
+// User settings model
+model UserSettings {
+  id                    String  @id @default(cuid())
+  userId                String  @unique
+  theme                 String  @default("system")
+  language              String  @default("pt-BR")
+  timezone              String  @default("America/Sao_Paulo")
+  emailNotifications    Boolean @default(true)
+  pushNotifications     Boolean @default(true)
+  marketingEmails       Boolean @default(false)
+  twoFactorEnabled      Boolean @default(false)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Indexes
+  @@map("user_settings")
+}
+
+// Enums
+enum Role {
+  USER
+  ADMIN
+  MODERATOR
+}
+
+enum NotificationType {
+  INFO
+  SUCCESS
+  WARNING
+  ERROR
+  SYSTEM
+}
