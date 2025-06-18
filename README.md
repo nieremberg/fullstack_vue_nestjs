@@ -88,7 +88,7 @@ npm run docker:dev
 ## 📁 Estrutura do Projeto
 
 ```
-fullstack-vue-nestjs-app/
+fullstack_vue_nestjs/
 ├── 📁 frontend/                 # Aplicação Vue.js
 │   ├── 📁 src/
 │   │   ├── 📁 components/      # Componentes reutilizáveis
