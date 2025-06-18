@@ -59,8 +59,8 @@ Certifique-se de ter instalado:
 
 1. **Clone o repositório**
 ```bash
-git clone <url-do-repositorio>
-cd fullstack-vue-nestjs-app
+git clone <git@github.com:nieremberg/fullstack_vue_nestjs.git>
+cd fullstack_vue_nestjs
 ```
 
 2. **Configure as variáveis de ambiente**
