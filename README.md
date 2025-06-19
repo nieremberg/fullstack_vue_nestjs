@@ -324,7 +324,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 👥 Equipe
 
-Desenvolvido com ❤️ para facilitar o desenvolvimento fullstack moderno.
+Desenvolvido pela equipe de FinOps da DIPS/DEGS da Dataprev.
 
 ---
 
